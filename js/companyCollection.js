@@ -6,7 +6,6 @@ define(function (require) {
 		Publics =[];
 
 	var companyCollection = function(){
-		
 
 		this.add = function(name) {
 			console.log("add companyModel");
@@ -14,21 +13,20 @@ define(function (require) {
 	         	console.log('No name was provided!');
 		        return;
          	}
-         this.company = new companyModel();
-         var newName = this.company.setCompanyName(name);
-         Privates.push(newName);
-         container.append(this.company.$element);
+             this.company = new companyModel();
+             var newName = this.company.setCompanyName(name);
+             Privates.push(newName);
+             container.append(this.company.$element);
 		};
 		this.bankrupt = function() {
 	        if (!Privates.length) {
 	            console.log("No private company");
 	            return;
 	        }
- 
-         var randomIndex = this.company.getRandomSelection(Privates.length);
-            this.company = Privates[randomIndex];
-         	this.company.bankrupt();
-         	Privates.splice(randomIndex, 1);
+            var randomIndex = this.company.getRandomSelection(Privates.length);
+                this.company = Privates[randomIndex];
+             	this.company.bankrupt();
+             	Privates.splice(randomIndex, 1);
      	};
      	this.addProduct = function() {
      		if(!Privates.length) {
@@ -60,7 +58,7 @@ define(function (require) {
                  Publics.splice(index, 1);
              }
          });
-     	} ;
+     	};
      	this.merge = function () {
      		if(Publics.length < 2 ){
      			console.log("More than two public companies are needed");
@@ -82,8 +80,7 @@ define(function (require) {
 	         this.removeFromPublics(smallCompany);
 	         
 	         smallCompany.destroy();
-     		};
-
+     	};
     };
  
 	return companyCollection;
